@@ -1,0 +1,101 @@
+/* about Menu */
+.about_class {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 5%;
+    right: 5%; /* Moves to the top-right */
+    text-align: right;
+    gap: 50px;
+    opacity: 1;
+    visibility: hidden;
+    font-size: 20px;
+}
+@keyframes glowingText {
+        0% { text-shadow: 0 0 5px #ffffff, 0 0 10px hsl(0, 0%, 100%); }
+        50% { text-shadow: 0 0 15px #f16c6c, 0 0 30px #d8794d; }
+        100% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff; }
+    }
+    
+    .About {
+        font-weight: bold;
+        color: black;
+        animation: glowingText 2s infinite alternate;
+    }
+
+
+.Education, .Skills, .Project, .Contact {
+    transition: transform 0.3s ease;
+}
+
+.Education:hover, .Skills:hover, .Project:hover, .Contact:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px); /* Starts off-screen */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.glenn_Img2 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2px solid black;
+    position: absolute;
+    top: 170px;
+    right: 50px;
+    opacity: 0; /* Start hidden */
+    transform: translateX(100px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* When 'showContent' is added, animate it */
+.showContent .glenn_Img2 {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-50px); /* Start slightly left */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Move to normal position */
+    }
+}
+
+.description {
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: justify;
+    width: 600px;
+    margin: 20px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    line-height: 2.3;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    /* Positioning */
+    position: absolute;
+    right: 500px;
+    top: 140px;
+    transform: translateY(-50%);
+    
+    /* Initially Hidden */
+    opacity: 0;
+    
+    /* Animation */
+    animation: fadeInSlide 1s ease-out forwards;
+    animation-delay: 1s; /* Waits 2 seconds before appearing */
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Intro Panel -->
+    <div id="panel" class="introbox">
+        <img src="../photo/glenn.jpg" alt="Glenn Punio" class="glenn_Img">
+        <p class="name">Glenn Domingo Punio</p>
+        <p id="typing-text" class="typing-text"></p>
+        <button onclick="hidePanel();">Get Started</button>
+    </div>
+
+    <!-- Navigation -->
+    <div id="navigation" class="nav hidden">
+        <div onclick="showSection('about');">About</div>
+        <div onclick="showSection('education');">Education</div>
+        <div onclick="showSection('skills');">Skills</div>
+        <div onclick="showSection('projects');">Projects</div>
+        <div onclick="showSection('contact');">Contact</div>
+    </div>
+
+    <!-- Sections -->
+    <div id="about" class="section hidden">
+        <p class="aboutPage">About Glenn</p>
+    </div>
+    <div id="education" class="section hidden">
+
+        <p>Education Section</p>
+    </div>
+    <div id="skills" class="section hidden">
+        <p>Skills Section</p>
+    </div>
+    <div id="projects" class="section hidden">
+        <p>Projects Section</p>
+    </div>
+    <div id="contact" class="section hidden">
+        <p>Contact Section</p>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>
