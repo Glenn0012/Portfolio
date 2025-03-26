@@ -1,22 +1,47 @@
 function hidePanel() {
-    // Hide intro panel
-    document.getElementById("panel").classList.add("hidden"); 
-
-    // Show navigation and about section
-    document.getElementById("navigation").classList.remove("hidden"); // Show navigation
-    document.getElementById("about").classList.remove("hidden"); // Show about section
-
-    document.getElementById("navigation").classList.add("showItem"); // Apply fade-in effect
-    document.getElementById("about").classList.add("showItem"); // Apply fade-in effect
+        document.getElementById("panel").classList.add("hidden");
+        document.getElementById("navigation").classList.remove("hidden"); //Show Nav
+        document.getElementById("navigation").classList.add("nav"); // Show Navigation CSS
+        document.getElementById("about").classList.remove("hidden"); // Show about section
+}
+function showAbout(){
+        document.getElementById("about").classList.remove("hidden");
+         document.getElementById("education").classList.add("hidden");
+        document.getElementById("skills").classList.add("hidden");
+        document.getElementById("projects").classList.add("hidden");
+        document.getElementById("contact").classList.add("hidden");
 }
 
-// Function to show different sections
-function showSection(sectionId) {
-    document.querySelectorAll(".section").forEach(section => section.classList.add("hidden")); // Hide all sections
-    document.getElementById(sectionId).classList.remove("hidden"); // Show selected section
-    document.getElementById(sectionId).classList.add("showContent"); // Add animation
+function showEducation(){
+        document.getElementById("about").classList.add("hidden");
+        document.getElementById("education").classList.remove("hidden");
+        document.getElementById("skills").classList.add("hidden");
+        document.getElementById("projects").classList.add("hidden");
+        document.getElementById("contact").classList.add("hidden");
 }
 
+function showSkills(){
+        document.getElementById("about").classList.add("hidden");
+        document.getElementById("education").classList.add("hidden");
+        document.getElementById("skills").classList.remove("hidden");
+        document.getElementById("projects").classList.add("hidden");
+        document.getElementById("contact").classList.add("hidden");
+}
+function showProjects(){
+        document.getElementById("about").classList.add("hidden");
+        document.getElementById("education").classList.add("hidden");
+        document.getElementById("skills").classList.add("hidden");
+        document.getElementById("projects").classList.remove("hidden");
+        document.getElementById("contact").classList.add("hidden");
+}
+function showContact(){
+        document.getElementById("about").classList.add("hidden");
+        document.getElementById("education").classList.add("hidden");
+        document.getElementById("skills").classList.add("hidden");
+        document.getElementById("projects").classList.add("hidden");
+        document.getElementById("contact").classList.remove("hidden");
+}
+    
 // Typing Animation Function
 function typeText(elementId, texts = [], speed = 100, delay = 1500) {
     const element = document.getElementById(elementId);
