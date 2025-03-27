@@ -17,18 +17,24 @@
     </div>
 
     <!-- Navigation -->
-    <div id="navigation" class="hidden">
-        <div onclick="showAbout();">About</div>
+    <div id="navigation" class="fixed floating-box">
+        <div class='active' data-target="about" onclick="show('about');">About</div>
+        <div class="sub-nav" data-target="education" onclick="show('education');">Education</div>
+        <div class="sub-nav" data-target="skills" onclick="show('skills')">Skills</div>
+        <div class="sub-nav" data-target="projects" onclick="show('projects');">Projects</div>
+        <div class="sub-nav" data-target="contact" onclick="show('contact');">Contact</div>
+        <!-- <div onclick="showAbout();">About</div>
         <div onclick="showEducation();">Education</div>
         <div onclick="showSkills()">Skills</div>
         <div onclick="showProjects();">Projects</div>
-        <div onclick="showContact();">Contact</div>
+        <div onclick="showContact();">Contact</div> -->
     </div>
 
     <!-- Sections -->
     <div id="about" class="hidden">
         <h1 class="head1">Hi, I'm Glenn Punio – a Web Developer skilled in HTML, CSS, and JavaScript.</h1>
         <p class="aboutPage"> I specialize in creating modern, responsive, and user-friendly websites. With a strong foundation in front-end development, I build clean, efficient, and visually appealing web experiences. Whether it’s designing sleek interfaces or optimizing website performance, I’m passionate about bringing ideas to life through code.  
+        
         </p>
         <img src="glenn.jpg" class="glenn_Img2">
     </div>
