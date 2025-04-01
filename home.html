@@ -17,21 +17,19 @@
     </div>
 
     <!-- Navigation -->
-    <div id="navigation" class="fixed floating-box">
-        <div class='active' data-target="about" onclick="show('about');">About</div>
-        <div class="sub-nav" data-target="education" onclick="show('education');">Education</div>
-        <div class="sub-nav" data-target="skills" onclick="show('skills')">Skills</div>
-        <div class="sub-nav" data-target="projects" onclick="show('projects');">Projects</div>
-        <div class="sub-nav" data-target="contact" onclick="show('contact');">Contact</div>
-        <!-- <div onclick="showAbout();">About</div>
-        <div onclick="showEducation();">Education</div>
-        <div onclick="showSkills()">Skills</div>
-        <div onclick="showProjects();">Projects</div>
-        <div onclick="showContact();">Contact</div> -->
+    <nav>
+        <a href="#" onclick="scrollToSection('section1')" id="link1">Section 1</a>
+        <a href="#" onclick="scrollToSection('section2')" id="link2">Section 2</a>
+        <a href="#" onclick="scrollToSection('section3')" id="link3">Section 3</a>
+    </nav>
+    <div class="container" id="scroll-container">
+        <section id="section1"><div class="text">Welcome to Section 1</div></section>
+        <section id="section2"><div class="text">Welcome to Section 2</div></section>
+        <section id="section3"><div class="text">Welcome to Section 3</div></section>
     </div>
 
     <!-- Sections -->
-    <div id="about" class="hidden">
+    <!-- <div id="about" class="hidden">
         <h1 class="head1">Hi, I'm Glenn Punio – a Web Developer skilled in HTML, CSS, and JavaScript.</h1>
         <p class="aboutPage"> I specialize in creating modern, responsive, and user-friendly websites. With a strong foundation in front-end development, I build clean, efficient, and visually appealing web experiences. Whether it’s designing sleek interfaces or optimizing website performance, I’m passionate about bringing ideas to life through code.  
         
@@ -49,7 +47,7 @@
     </div>
     <div id="contact" class="hidden">
         <p class="contactPage">Contact Section</p>
-    </div>
+    </div> -->
 
     <script src="home.js"></script>
 </body>
