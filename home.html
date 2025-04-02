@@ -5,55 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glenn Punio</title>
     <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="about.css">
 </head>
 <body>
-    <!-- Intro Panel -->
-    <div id="panel" class="introbox">
-        <img src="glenn.jpg" alt="Glenn Punio" class="glenn_Img">
-        <p class="name">Glenn Domingo Punio</p>
-        <p id="typing-text" class="typing-text"></p>
-        <button onclick="hidePanel();">Get Started</button>
-    </div>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#" onclick="scrollToSection('about')" id="link1">Section 1</a>
-        <a href="#" onclick="scrollToSection('education')" id="link2">Section 2</a>
-        <a href="#" onclick="scrollToSection('skills')" id="link3">Section 3</a>
-        <a href="#" onclick="scrollToSection('projects')" id="link4">Section 4</a>
-        <a href="#" onclick="scrollToSection('contact')" id="link5">Section 5</a>
+    <nav id="navbar">
+        <a href="#" onclick="scrollToSection('about')">About</a>
+        <a href="#" onclick="scrollToSection('education')">Education</a>
+        <a href="#" onclick="scrollToSection('skills')">Skills</a>
+        <a href="#" onclick="scrollToSection('projects')">Projects</a>
+        <a href="#" onclick="scrollToSection('contact')">Contact</a>
     </nav>
+
     <div class="container" id="scroll-container">
-        <section id="about"><div class="text">Welcome to Section 1</div></section>
-        <section id="education"><div class="text">Welcome to Section 2</div></section>
-        <section id="skills"><div class="text">Welcome to Section 3</div></section>
-        <section id="projects"><div class="text">Welcome to Section 4</div></section>
-        <section id="contact"><div class="text">Welcome to Section 5</div></section>
-
-
+        <section id="about"><div class="data">Welcome to About</div></section>
+        <section id="education"><div class="data">Welcome to Education</div></section>
+        <section id="skills"><div class="data">Welcome to Skills</div></section>
+        <section id="projects"><div class="data">Welcome to Projects</div></section>
+        <section id="contact"><div class="data">Welcome to Contact</div></section>
     </div>
-
-    <!-- Sections -->
-    <!-- <div id="about" class="hidden">
-        <h1 class="head1">Hi, I'm Glenn Punio – a Web Developer skilled in HTML, CSS, and JavaScript.</h1>
-        <p class="aboutPage"> I specialize in creating modern, responsive, and user-friendly websites. With a strong foundation in front-end development, I build clean, efficient, and visually appealing web experiences. Whether it’s designing sleek interfaces or optimizing website performance, I’m passionate about bringing ideas to life through code.  
-        
-        </p>
-        <img src="glenn.jpg" class="glenn_Img2">
-    </div>
-    <div id="education" class="hidden">
-        <p class="educationPage">Education Section</p>
-    </div>
-    <div id="skills" class="hidden">
-        <p class="skillsPage">Skills Section</p>
-    </div>
-    <div id="projects" class="hidden">
-        <p class="projectsPage">Projects Section</p>
-    </div>
-    <div id="contact" class="hidden">
-        <p class="contactPage">Contact Section</p>
-    </div> -->
 
     <script src="home.js"></script>
 </body>
