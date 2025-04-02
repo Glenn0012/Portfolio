@@ -1,71 +1,97 @@
 function hidePanel() {
     document.getElementById("panel").classList.add("hidden");
-    document.getElementById("navigation").classList.remove("hidden"); //Show Nav
-    document.getElementById("navigation").classList.add("nav"); // Show Navigation CSS
-    document.getElementById("about").classList.add("active"); // Show about section
-    document.getElementById("about").classList.remove("hidden"); // Show about section
+
+    let navigation = document.getElementById("navigation");
+    if (navigation) {
+        navigation.classList.remove("hidden");
+        navigation.classList.add("nav");
+    }
+
+    let about = document.getElementById("about");
+    if (about) {
+        about.classList.remove("hidden");
+    }
 }
 
-const sections = [
-    'about',
-    'education',
-    'skills',
-    'projects',
-    'contact'
-];
+// Improve scroll event performance
+let isScrolling = false;
+document.getElementById("scroll-container").addEventListener("scroll", () => {
+    if (!isScrolling) {
+        requestAnimationFrame(() => {
+            updateActiveLink();
+            isScrolling = false;
+        });
+        isScrolling = true;
+    }
+});
 
-function show(selected_navigation) {
-    console.log({selected_navigation})
+function updateActiveLink() {
+    let sections = document.querySelectorAll("section");
+    let links = document.querySelectorAll("nav a");
+    let scrollPosition = document.getElementById("scroll-container").scrollTop;
 
-    sections.forEach(function(section, i){
-        if (selected_navigation == section) {
-            document.querySelector(`div[data-target="${section}"]`).classList.add("active");
-            document.getElementById(section).classList.remove("hidden");
-        } else {
-            document.querySelector(`div[data-target="${section}"]`).classList.remove("active");
-            document.getElementById(section).classList.add("hidden");
+    sections.forEach((section, index) => {
+        let offsetTop = section.offsetTop;
+        let offsetHeight = section.offsetHeight;
+
+        if (scrollPosition >= offsetTop - offsetHeight / 2 && scrollPosition < offsetTop + offsetHeight / 2) {
+            links.forEach(link => link.classList.remove("active"));
+            links[index].classList.add("active");
         }
-    })
+    });
 }
 
-function showAbout(){
-        document.getElementById("about").classList.remove("hidden");
-        document.getElementById("education").classList.add("hidden");
-        document.getElementById("skills").classList.add("hidden");
-        document.getElementById("projects").classList.add("hidden");
-        document.getElementById("contact").classList.add("hidden");
+function scrollToSection(sectionId) {
+    let container = document.getElementById("scroll-container");
+    let section = document.getElementById(sectionId);
+    container.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth"
+    });
 }
 
-function showEducation(){
-        document.getElementById("about").classList.add("hidden");
-        document.getElementById("education").classList.remove("hidden");
-        document.getElementById("skills").classList.add("hidden");
-        document.getElementById("projects").classList.add("hidden");
-        document.getElementById("contact").classList.add("hidden");
+function scrollByStep(step) {
+    let container = document.getElementById("scroll-container");
+    let sections = document.querySelectorAll("section");
+    let currentScroll = container.scrollTop;
+    let targetIndex = 0;
+
+    sections.forEach((section, index) => {
+        if (currentScroll >= section.offsetTop - section.offsetHeight / 2) {
+            targetIndex = index;
+        }
+    });
+
+    let nextIndex = targetIndex + step;
+    if (nextIndex >= 0 && nextIndex < sections.length) {
+        container.scrollTo({
+            top: sections[nextIndex].offsetTop,
+            behavior: "smooth"
+        });
+    }
 }
 
-function showSkills(){
-        document.getElementById("about").classList.add("hidden");
-        document.getElementById("education").classList.add("hidden");
-        document.getElementById("skills").classList.remove("hidden");
-        document.getElementById("projects").classList.add("hidden");
-        document.getElementById("contact").classList.add("hidden");
+// Keyboard Navigation
+document.addEventListener("keydown", function(event) {
+    if (event.key === "ArrowDown") {
+        scrollByStep(1);
+    } else if (event.key === "ArrowUp") {
+        scrollByStep(-1);
+    }
+});
+
+// Reveal elements with intersection observer
+function handleIntersection(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
 }
-function showProjects(){
-        document.getElementById("about").classList.add("hidden");
-        document.getElementById("education").classList.add("hidden");
-        document.getElementById("skills").classList.add("hidden");
-        document.getElementById("projects").classList.remove("hidden");
-        document.getElementById("contact").classList.add("hidden");
-}
-function showContact(){
-        document.getElementById("about").classList.add("hidden");
-        document.getElementById("education").classList.add("hidden");
-        document.getElementById("skills").classList.add("hidden");
-        document.getElementById("projects").classList.add("hidden");
-        document.getElementById("contact").classList.remove("hidden");
-}
-    
+
+let observer = new IntersectionObserver(handleIntersection, { threshold: 0.6 });
+document.querySelectorAll(".text").forEach(el => observer.observe(el));
+
 // Typing Animation Function
 function typeText(elementId, texts = [], speed = 100, delay = 1500) {
     const element = document.getElementById(elementId);
@@ -81,8 +107,10 @@ function typeText(elementId, texts = [], speed = 100, delay = 1500) {
             updateText();
             setTimeout(type, speed);
         } else if (!isDeleting) {
-            isDeleting = true;
-            setTimeout(type, delay);
+            setTimeout(() => {
+                isDeleting = true;
+                type();
+            }, delay);
         } else if (isDeleting && charIndex > 0) {
             charIndex--;
             updateText();
@@ -100,35 +128,5 @@ function typeText(elementId, texts = [], speed = 100, delay = 1500) {
 // Run animations when the page loads
 window.onload = () => {
     typeText("typing-text", ["Web Developer", "Software Engineer", "Full Stack Developer", "Network Engineer"]);
+    updateActiveLink();
 };
-
-let isScrolling = false;
-
-window.addEventListener('scroll', function () {
-    if (!isScrolling) {
-        isScrolling = true;
-
-        // Your scroll logic
-        console.log("Scrolled once!");
-
-        // Allow another scroll event after a short delay
-        setTimeout(() => {
-            try {
-                const activeNavigation = document.querySelector('#navigation div.active').getAttribute('data-target')
-                const nextSectionIndex = sections.indexOf(activeNavigation) + 1;
-                const nextSectionID = sections[nextSectionIndex];
-
-                console.log({activeNavigation, nextSectionIndex, nextSectionID})
-
-                document.querySelector(`div[data-target="${activeNavigation}"]`).classList.remove("active");
-                document.querySelector(`div[data-target="${nextSectionID}"]`).classList.remove("active");
-                document.querySelector(`div[data-target="${nextSectionID}"]`).classList.remove("active");
-
-                show(nextSectionID)
-            } catch (error) {
-                
-            }
-            isScrolling = false;
-        }, 1000); // Adjust delay based on scroll speed
-    }
-});
