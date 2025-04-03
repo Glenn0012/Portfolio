@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <!-- 📌 Navbar -->
     <nav id="navbar">
         <a href="#" onclick="scrollToSection('about')">About</a>
         <a href="#" onclick="scrollToSection('education')">Education</a>
@@ -16,12 +17,24 @@
         <a href="#" onclick="scrollToSection('contact')">Contact</a>
     </nav>
 
+    <!-- 📌 Scrollable Content Container -->
     <div class="container" id="scroll-container">
-        <section id="about"><div class="data">Welcome to About</div></section>
-        <section id="education"><div class="data">Welcome to Education</div></section>
-        <section id="skills"><div class="data">Welcome to Skills</div></section>
-        <section id="projects"><div class="data">Welcome to Projects</div></section>
-        <section id="contact"><div class="data">Welcome to Contact</div></section>
+        <section id="about">
+            <div class="data fade">About</div>
+            <div class="data fade" id="intro">Hi, I'm Glenn Punio, an aspiring web developer...</div>
+        </section>
+        <section id="education">
+            <div class="data fade">Education</div>
+        </section>
+        <section id="skills">
+            <div class="data fade">Skills</div>
+        </section>
+        <section id="projects">
+            <div class="data fade">Projects</div>
+        </section>
+        <section id="contact">
+            <div class="data fade">Contact</div>
+        </section>
     </div>
 
     <script src="home.js"></script>

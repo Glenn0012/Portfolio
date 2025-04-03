@@ -1,64 +1,16 @@
-.aboutPage{
+#portfolio {
     position: absolute;
-    text-align: justify;
-    font-size: 20px;
-    align-content: center;
-    max-width: 500px;
-    left: 100px;
-    top:200px;
+    top: 90px;
+    left: 50px;
+    font-size: 30px;
+}
+#intro {
+    position: relative; /* Change to relative */
+    width: 50%;
+    margin: 20px auto; /* Center it */
+    padding: 20px;
+    background-color: red !important; /* Temporarily red */
     color: white;
-    word-spacing:normal;
-    letter-spacing: 2px;
-    line-height: 1.5;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    border-radius: 10px;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in forwards;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-.glenn_Img2 {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 15px;
-    border: 2px solid black;
-    top: 220px;
-    right: 250px;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in forwards;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-.head1{
-    position: absolute;
-    left: 100px;
-    top:100px;
-    width: fit-content;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in forwards;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    font-size: 20px;
+    border: 2px solid yellow !important; /* Yellow border */
 }
